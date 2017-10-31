@@ -94,13 +94,6 @@ def stop_start_vm(compute_client, rgn, vm_name, action):
 # sort out arguments
 start_stop, resource_groups, exclude_vm = _args()
 
-# exit if it's the weekend as we don't need to start any vm
-today = datetime.today()
-if today.weekday() in [5, 6] and start_stop == 'start_vm':
-    raise SystemExit("It's {} which is the weekend, so not doing anything "
-                     "today!".format(calendar.day_name[today.weekday()]))
-
-
 compute_client = get_compute_client()
 # dict for rg mapped to their vm list
 vm_list = defaultdict(dict)
