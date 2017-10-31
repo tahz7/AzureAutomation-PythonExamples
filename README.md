@@ -1,35 +1,17 @@
 # AzureAutomation-PythonExamples
-Python example runbooks for Azure Automation
+Examples are from - https://github.com/Diastro/AzureAutomation-PythonExamples
 
-To report an issue or request an example please open an [issue](https://github.com/Diastro/AzureAutomation-PythonExamples/issues).
+Changes have been made to RunAs/azure-parallel-start-vm.py for personal usage. These are:
 
-### Built-in Azure SDK
-The Azure Python2 SDK is build into Azure Automation. To use **any** of the Azure module simply import them from your runbooks like so :
+* start vm
+* stop vm
+* select which resource groups to apply to
+* select if there's any vm's you want to exclude
 
-```
-from azure.common.credentials import UserPassCredentials
-from azure.mgmt.resource import ResourceManagementClient
-from azure.mgmt.storage import StorageManagementClient
-from azure.storage import CloudStorageAccount
-from azure.storage.blob.models import ContentSettings, PublicAccess
-...
-```
-Reference : [Azure Python SDK Documentation](https://azure-sdk-for-python.readthedocs.io/en/latest/#)
+# Usage for azure-parallel-start-vm.py
 
-## Runbook examples
-#### Automation assets
-* [Connections](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/Assets/connection.py)
-* [Certificates](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/Assets/certificates.py)
-* [Credentials](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/Assets/credentials.py)
-* [Variables](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/Assets/variables.py)
+When you schedule the runbook, you need to fill out the parameters like this example:
 
-#### Automation runbook parameter
-* [Runbook parameters](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/Parameters/parameters.py)
-
-#### RunAs (Azure service principal)
- * [List azure resource groups](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/RunAs/azure-list-resource-group.py)
- * [Parallel start/stop azure vms](https://github.com/Diastro/AzureAutomation-PythonExamples/blob/master/RunAs/azure-parallel-start-vm.py)
-
-## Reference
-* [Azure Automation documentation](https://docs.microsoft.com/en-us/azure/automation/automation-runbook-types)
-* [Azure Python SDK Documentation](https://azure-sdk-for-python.readthedocs.io/en/latest/#)
+    Param1: start_vm # start_vm or stop_vm
+    Param2: rg-elasticsearch-prod # this is which rg's you want to start/stop vm's in. You can state multiple rg's like this: rg-mysql-prod rg-nginx-prod rg-apache-prod
+    Param3: (leave empty by default) # this is which vm's you want to exclude. You can state multiple vm's like this: az-vm-prod-01 az-vm-prod-05
