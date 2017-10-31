@@ -1,7 +1,7 @@
 # AzureAutomation-PythonExamples
 Examples are from - https://github.com/Diastro/AzureAutomation-PythonExamples
 
-Changes have been made to RunAs/azure-parallel-start-vm.py for personal usage. These are:
+Additions have been made to RunAs/azure-parallel-start-vm.py for personal usage. These are:
 
 * start vm
 * stop vm
