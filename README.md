@@ -13,5 +13,5 @@ Additions have been made to RunAs/azure-parallel-start-vm.py for personal usage.
 When you schedule the runbook, you need to fill out the parameters like this example:
 
     Param1: start_vm # start_vm or stop_vm
-    Param2: rg-elasticsearch-prod # this is which rg's you want to start/stop vm's in. You can state multiple rg's like this: rg-mysql-prod rg-nginx-prod rg-apache-prod
-    Param3: (leave empty by default) # this is which vm's you want to exclude. You can state multiple vm's like this: az-vm-prod-01 az-vm-prod-05
+    Param2: rg-nginx-prod # this is which rg's you want to start/stop vm's in. You can state multiple rg's like this: rg-mysql-prod rg-nginx-prod rg-apache-prod
+    Param3: (leave empty by default) # this is which vm's you want to exclude. You can state multiple vm's like this: !_az-vm-prod-01 !_az-vm-prod-05
